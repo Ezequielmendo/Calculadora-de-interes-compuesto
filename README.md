@@ -70,8 +70,5 @@ app/
 
 ```
 
-# **Licencia**
-Este proyecto se distribuye bajo la licencia MIT.
-
 # **Sobre Mí**
 Este proyecto fue desarrollado por Ezequiel Mendoza. Si tienes dudas o sugerencias, ¡no dudes en contactarme!
