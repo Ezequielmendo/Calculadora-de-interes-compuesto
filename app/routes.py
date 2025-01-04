@@ -1,7 +1,7 @@
-from flask import request, render_template, redirect, flash, url_for
 from app import app
+from flask import request, render_template, redirect, flash, url_for
+from app.funciones import calcular_capitalfinal, calcular_ganancia, calcular_tasa_mensual_y_meses, generar_tabla
 
-from app.funciones import calcular_capitalfinal, calcular_ganancia, generar_tabla
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -14,8 +14,7 @@ def index():
             aportemensual = float(request.form['aportemensual'])
 
             # Cálculos principales
-            tasamensual = tasainteres / 100 / 12  # Convertir tasa anual a mensual en decimal
-            meses = periodo * 12  # Convertir periodo en años a meses
+            tasamensual, meses = calcular_tasa_mensual_y_meses(tasainteres, periodo)
 
             # Calcular el monto final usando interés compuesto
             capitalfinal = calcular_capitalfinal(tasamensual, meses, capital, aportemensual)
@@ -25,7 +24,7 @@ def index():
 
             # Generar datos para la tabla de resultados
             datos_tabla = generar_tabla(periodo, capital, tasamensual, aportemensual)
-
+            
             # Renderizar resultados
             return render_template(
                 'index.html',

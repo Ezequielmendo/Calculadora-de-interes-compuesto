@@ -1,9 +1,15 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f8ff;
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
+    background-image: url('/static/images/image.jpeg'); /* Ruta correcta de la imagen */
+    background-size: cover; /* Ajusta al tamaño de la pantalla */
+    background-repeat: no-repeat; /* Evita repeticiones */
+    background-position: center center; /* Centra la imagen en ambos ejes */
+    background-attachment: fixed; /* Fija la imagen al fondo */
+    height: 100vh; /* Asegura que el fondo ocupe toda la altura */
+    margin: 0; /* Elimina cualquier margen */
+    padding: 0; /* Elimina cualquier padding */
+    image-rendering: auto; /* Ayuda a evitar el desenfoque */
+    -webkit-font-smoothing: antialiased; /* Mejora la nitidez en navegadores */
 }
 
 .container {

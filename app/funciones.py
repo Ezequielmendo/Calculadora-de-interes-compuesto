@@ -1,5 +1,12 @@
 import math
 
+
+def calcular_tasa_mensual_y_meses(tasainteres, periodo):
+    tasamensual = tasainteres / 100 / 12  # Convertir tasa anual a mensual en decimal
+    meses = periodo * 12  # Convertir periodo en años a meses
+    return tasamensual, meses
+
+
 def generar_tabla(periodo, capital, tasamensual, aportemensual):
     datos_tabla = []
     for año in range(1, periodo + 1):
@@ -18,11 +25,13 @@ def generar_tabla(periodo, capital, tasamensual, aportemensual):
         })
     return datos_tabla
 
+
 def calcular_capitalfinal(tasamensual, meses, capital, aportemensual):
     monto_capital = capital * math.pow(1 + tasamensual, meses)
     monto_aportes = aportemensual * ((math.pow(1 + tasamensual, meses) - 1) / tasamensual)
     capitalfinal = round(monto_capital + monto_aportes, 2)
     return capitalfinal
+
 
 def calcular_ganancia(capital, aportemensual, meses, capitalfinal):
     inversiontotal = capital + (aportemensual * meses)
