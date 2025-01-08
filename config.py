@@ -1,5 +1,5 @@
-import os
+import secrets
 
 class Config:
-    SECRET_KEY = '_secret.key_'
+    secrets.token_urlsafe(32)
     FLASK_ENV='production'
